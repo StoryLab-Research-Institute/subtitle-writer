@@ -1,0 +1,13 @@
+{
+  "name": "com.storylabresearch.subtitle-writer",
+  "version": "0.1.0",
+  "displayName": "StoryLab Subtitle Writer",
+  "description": "Reads standard subtitle SRT files, writes to a string, optionally to a text component",
+  "unity": "2022.3",
+  "unityRelease": "5f1",
+  "author": {
+    "name": "Chris Nightingale",
+    "email": "chris@nightingale.to",
+    "url": "storylabresearch.com"
+  }
+}
