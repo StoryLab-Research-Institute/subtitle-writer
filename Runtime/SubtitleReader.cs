@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -25,8 +26,8 @@ namespace StoryLabResearch.SubtitleWriter
 
         [Header("Playback")]
         [SerializeField] private SubtitleStartMode _startMode = SubtitleStartMode.OnGameObjectStart;
-        [SerializeField] private float _startFrom = 0f;
-        [SerializeField] private float _stopAt = 0f;
+        [SerializeField] private SrtTimecode _startFrom;
+        [SerializeField] private SrtTimecode _stopAt;
 
         [SerializeField] private TMP_Text _textObject;
 
@@ -47,7 +48,7 @@ namespace StoryLabResearch.SubtitleWriter
         {
             if (_textObject == null) _textObject = GetComponent<TMP_Text>();
             if (_startMode == SubtitleStartMode.OnGameObjectStart)
-                Play(_startFrom, _stopAt);
+                Play(_startFrom.ToSeconds(), _stopAt.ToSeconds());
         }
 
         private void Update()
@@ -70,8 +71,8 @@ namespace StoryLabResearch.SubtitleWriter
 
         // --- Public API ---
 
-        public void Play() => BeginPlayback(_startFrom, _stopAt);
-        public void Play(float startFrom) => BeginPlayback(startFrom, _stopAt);
+        public void Play() => BeginPlayback(_startFrom.ToSeconds(), _stopAt.ToSeconds());
+        public void Play(float startFrom) => BeginPlayback(startFrom, _stopAt.ToSeconds());
         public void Play(float startFrom, float stopAt) => BeginPlayback(startFrom, stopAt);
 
         public void Stop()
