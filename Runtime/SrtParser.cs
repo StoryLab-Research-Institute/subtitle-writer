@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace StoryLab.SubtitleWriter
+namespace StoryLabResearch.SubtitleWriter
 {
     public readonly struct SubtitleCue
     {

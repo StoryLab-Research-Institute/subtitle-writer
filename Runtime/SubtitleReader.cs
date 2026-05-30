@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-namespace StoryLab.SubtitleWriter
+namespace StoryLabResearch.SubtitleWriter
 {
     [Serializable]
     public class SubtitleTrack
@@ -28,6 +28,8 @@ namespace StoryLab.SubtitleWriter
         [SerializeField] private float _startFrom = 0f;
         [SerializeField] private float _stopAt = 0f;
 
+        [SerializeField] private TMP_Text _textObject;
+
         public string CurrentSubtitle { get; private set; } = string.Empty;
 
         private Dictionary<string, List<SubtitleCue>> _cuesByLanguage;
@@ -43,6 +45,7 @@ namespace StoryLab.SubtitleWriter
 
         private void Start()
         {
+            if (_textObject == null) _textObject = GetComponent<TMP_Text>();
             if (_startMode == SubtitleStartMode.OnGameObjectStart)
                 Play(_startFrom, _stopAt);
         }
@@ -62,6 +65,7 @@ namespace StoryLab.SubtitleWriter
             }
 
             CurrentSubtitle = GetCueAt(_elapsed);
+            if(_textObject != null) _textObject.text = CurrentSubtitle;
         }
 
         // --- Public API ---

@@ -1,10 +1,12 @@
 {
-    "name": "StoryLab.SubtitleWriter",
-    "rootNamespace": "StoryLab.SubtitleWriter",
+    "name": "StoryLab.SubtitleWriter.Editor",
+    "rootNamespace": "StoryLab.SubtitleWriter.Editor",
     "references": [
-        "Unity.TextMeshPro"
+        "StoryLab.SubtitleWriter"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
